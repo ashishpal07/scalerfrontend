@@ -1,0 +1,11 @@
+
+.scroll-div {
+    max-height: 400px; 
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+
+.scroll-div::-webkit-scrollbar { 
+    width: none; 
+}
