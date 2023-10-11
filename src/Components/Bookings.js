@@ -6,18 +6,19 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 function AllBookings() {
   const [bookingsData, setBookingsData] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/booking")
+      .get(`https://hotelmanagement-server.onrender.com/api/v1/booking`)
       .then((res) => setBookingsData(res.data.allbookings))
       .catch((err) => console.log(err));
   }, []);
 
   const deletehandler= async (id) =>{
-    await axios.delete(`http://localhost:4000/api/v1/booking/${id}`);
+    await axios.delete(`https://hotelmanagement-server.onrender.com/api/v1/booking/${id}`);
     const filteredArray = bookingsData.filter(item => item._id !== id);
     setBookingsData(filteredArray);
   }

@@ -13,7 +13,7 @@ function BookingForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:4000/api/v1/booking", values)
+    axios.post(`https://hotelmanagement-server.onrender.com/api/v1/booking`, values)
     .then((res) => {
         console.log(res.data);
         navigate("/bookings")

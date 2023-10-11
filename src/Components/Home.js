@@ -3,12 +3,13 @@ import '../Style/home.css'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 function Home() {
   const [roomsData, setRoomsData] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/rooms")
+      .get(`https://hotelmanagement-server.onrender.com/api/v1/rooms`)
       .then((res) => setRoomsData(res.data.rooms))
       .catch((err) => console.log(err));
   }, []);

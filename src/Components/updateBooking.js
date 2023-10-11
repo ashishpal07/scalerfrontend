@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 function UpdateBooking() {
   const { id } = useParams();
 
@@ -14,14 +15,14 @@ function UpdateBooking() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/v1/booking/${id}`)
+      .get(`https://hotelmanagement-server.onrender.com/api/v1/booking/${id}`)
       .then((res) => setBookingDetails(res.data.booking))
       .catch((err) => console.log(err));
   }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:4000/api/v1/booking/${id}`, bookingDetails)
+    axios.put(`https://hotelmanagement-server.onrender.com/api/v1/booking/${id}`, bookingDetails)
     .then((res) => {
         console.log(res.data);
         navigate("/bookings")
